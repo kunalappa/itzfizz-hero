@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Elements revealed by the intro animation start hidden,
+   so there is no flash of visible content before GSAP runs. */
+.ch,
+.stat {
+  opacity: 0;
+}
+
+/* Dashed yellow lane marking. It is twice the screen width and
+   slides left by 50% on scroll, which loops seamlessly. */
+.road-lines {
+  width: 200%;
+  height: 4px;
+  background: repeating-linear-gradient(
+    90deg,
+    theme("colors.mark") 0 64px,
+    transparent 64px 140px
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ch,
+  .stat {
+    opacity: 1;
+  }
+}
